@@ -17,7 +17,7 @@
     ## for backend
         1. pyinstaller app.spec
     
-    ## for frontend
+    ## for frontend ( npm install )
         1. npm run build
         2. npm install -g npm
         3. pm2 start npm --name "next-app" -- start
