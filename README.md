@@ -19,8 +19,8 @@
     
     ## for frontend
         1. npm run build
-        2. npm install -g serve
-        3. serve -s dist
+        2. npm install -g npm
+        3. pm2 start npm --name "next-app" -- start
 
 
 # couchdb installation
