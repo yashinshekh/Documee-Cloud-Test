@@ -1,16 +1,21 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
-from flask import Flask, jsonify
-from flask_cors import CORS
+app = FastAPI()
 
-app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+# Enable CORS for all routes
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
-@app.route('/api/data', methods=['GET'])
-def get_data():
-    response = {
-        'message': 'Hello from Flask API!'
-    }
-    return jsonify(response)
+@app.get("/")
+async def get_data():
+    return {"message": "Hello from FastAPI!"}
 
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=5000)
