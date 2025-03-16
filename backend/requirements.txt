@@ -3,4 +3,4 @@ flask-cors
 python-socketio
 requests
 fastapi
-
+uvicorn
