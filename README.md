@@ -26,3 +26,6 @@
 # couchdb installation
     
     snap install couchdb
+    curl -X PUT http://127.0.0.1:5984/_config/admins/admin -d '"admin"'
+    sudo snap set couchdb admin=admin (alternative way to set admin credentials)
+
